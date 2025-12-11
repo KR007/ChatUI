@@ -13,6 +13,7 @@ export { default as Divider } from './Divider';
 export { default as Empty } from './Empty';
 export { default as ErrorBoundary } from './ErrorBoundary';
 export { default as FileCard } from './FileCard';
+export { default as Filter } from './Filter';
 export { default as Flex } from './Flex';
 export { default as Form } from './Form';
 export { default as Goods } from './Goods';

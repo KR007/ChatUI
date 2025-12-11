@@ -170,6 +170,8 @@ export { VisuallyHidden } from './components/VisuallyHidden';
 
 export { FileCard } from './components/FileCard';
 export type { FileCardProps } from './components/FileCard';
+export { Filter } from './components/Filter';
+export type { FilterProps, FilterValue } from './components/Filter';
 
 export { Coupon } from './components/Coupon';
 export type { CouponProps } from './components/Coupon';

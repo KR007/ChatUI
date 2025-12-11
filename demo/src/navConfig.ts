@@ -26,6 +26,7 @@ export const navConfig = [
     title: '表单组件',
     list: [
       { name: '复选框', code: 'checkbox' },
+      { name: '筛选器', code: 'filter' },
       { name: '表单', code: 'form' },
       { name: '单选框', code: 'radio' },
       { name: '点赞点踩', code: 'rate-actions' },

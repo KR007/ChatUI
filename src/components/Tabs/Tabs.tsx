@@ -53,15 +53,26 @@ const TabsPane = (props: TabsPaneProps) => {
 export type TabsProps = {
   className?: string;
   index?: number;
+  color?: 'primary';
+  size?: 'md' | 'lg';
   scrollable?: boolean;
   hideNavIfOnlyOne?: boolean;
   onChange?: (index: number, event: React.MouseEvent) => void;
-  children?: React.ReactNode;
+  children: React.ReactNode;
 };
 
 export const Tabs = (props: TabsProps) => {
-  const { className, index: oIndex = 0, scrollable, hideNavIfOnlyOne, children, onChange } = props;
-  const [pointerStyles, setPointerStyles] = useState({});
+  const {
+    className,
+    index: oIndex = 0,
+    color,
+    size,
+    scrollable,
+    hideNavIfOnlyOne,
+    children,
+    onChange,
+  } = props;
+
   const [index, setIndex] = useState(oIndex || 0);
   const indexRef = useRef(index);
   const navRef = useRef<HTMLDivElement>(null);
@@ -119,15 +130,8 @@ export const Tabs = (props: TabsProps) => {
     if (!text) return;
 
     const { offsetWidth: navWidth, offsetLeft: navOffsetLeft } = currentNav as HTMLElement;
-    const { width: textWidth } = text.getBoundingClientRect();
-    const pointerWidth = Math.max(textWidth - 16, 26);
     // 中心位的偏移量
     const offsetLeftOfCenter = navOffsetLeft + navWidth / 2;
-
-    setPointerStyles({
-      transform: `translateX(${offsetLeftOfCenter - pointerWidth / 2}px)`,
-      width: `${pointerWidth}px`,
-    });
 
     if (scrollable) {
       smoothScroll({
@@ -162,11 +166,14 @@ export const Tabs = (props: TabsProps) => {
   const needNav = headers.length > (hideNavIfOnlyOne ? 1 : 0);
 
   return (
-    <div className={clsx('Tabs', { 'Tabs--scrollable': scrollable }, className)}>
+    <div
+      className={clsx('Tabs', { 'Tabs--scrollable': scrollable }, className)}
+      data-color={color}
+      data-size={size}
+    >
       {needNav && (
         <div className="Tabs-nav" role="tablist" ref={navRef}>
           {headers}
-          <span className="Tabs-navPointer" style={pointerStyles} />
         </div>
       )}
       <div className="Tabs-content">{contents}</div>
