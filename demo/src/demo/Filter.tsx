@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { DemoPage, DemoSection } from '../components';
 import { Filter } from '../../../src';
 import type { FilterValue } from '../../../src';
@@ -129,6 +129,9 @@ export default () => {
     <DemoPage>
       <DemoSection title="基础用法">
         <Filter options={options1} onChange={(value) => console.log('筛选值:', value)} />
+      </DemoSection>
+      <DemoSection title="不同尺寸 - 大尺寸">
+        <Filter options={options1} size="lg" onChange={(value) => console.log('筛选值:', value)} />
       </DemoSection>
       <DemoSection title="受控模式">
         <Filter

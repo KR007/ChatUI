@@ -7,19 +7,20 @@ import { useLatest } from '../../hooks/useLatest';
 interface FilterOption {
   label: string;
   // value?: string;
-  icon?: string;
+  // icon?: string;
   children?: FilterOption[];
 }
 
 export type FilterValue = Record<string, string>;
 
 export interface FilterProps {
+  className?: string;
   options: FilterOption[];
   value?: FilterValue;
-  className?: string;
-  onChange?: (value: FilterValue) => void;
-  scrollable?: boolean;
+  size?: 'md' | 'lg';
   itemsPerRow?: number;
+  scrollable?: boolean;
+  onChange?: (value: FilterValue) => void;
 }
 
 interface ChildOptionsProps {
@@ -53,12 +54,13 @@ const ChildOptions = ({ value, option, onClick }: ChildOptionsProps) => {
 
 export const Filter = (props: FilterProps) => {
   const {
+    className,
     options = [],
     value: outerValue,
-    className,
-    onChange,
-    scrollable = options.length > 4,
+    size,
     itemsPerRow = 3,
+    scrollable = options.length > 4,
+    onChange,
   } = props;
 
   const [innerValue, setInnerValue] = useState<FilterValue>({});
@@ -202,6 +204,7 @@ export const Filter = (props: FilterProps) => {
       className={clsx('Filter', className)}
       data-scrollable={scrollable}
       data-expanded={!!expandedOption}
+      data-size={size}
       ref={wrapper}
       style={
         {

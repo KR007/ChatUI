@@ -4,8 +4,8 @@ import { Price } from '../Price';
 import { Button } from '../Button';
 import { Flex, FlexItem } from '../Flex';
 import { Text } from '../Text';
-import { StatusBadge } from '../StatusBadge';
 import { Image } from '../Image';
+import { Ribbon } from '../Ribbon';
 import { formatExpireTime } from '../../utils/date';
 
 type RedPacketStatus = 'normal' | 'nearExpired' | 'expired' | 'used';
@@ -117,8 +117,16 @@ export const RedPacket = (props: RedPacketProps) => {
           </Button>
         </Flex>
       )}
-      {statusLabel && <StatusBadge text={statusLabel} />}
-      {tag && <div className="RedPacket-tag">{tag}</div>}
+      {statusLabel && (
+        <Ribbon
+          color={['expired', 'used'].includes(status) ? 'gray' : 'primary'}
+          position="right"
+          size="sm"
+        >
+          {statusLabel}
+        </Ribbon>
+      )}
+      {tag && <Ribbon>{tag}</Ribbon>}
     </Flex>
   );
 };

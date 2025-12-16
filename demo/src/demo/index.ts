@@ -40,6 +40,7 @@ export { default as Quote } from './Quote';
 export { default as Radio } from './Radio';
 export { default as RateActions } from './RateActions';
 export { default as RedPacket } from './RedPacket';
+export { default as Ribbon } from './Ribbon';
 export { default as RichText } from './RichText';
 export { default as ScrollGrid } from './ScrollGrid';
 export { default as ScrollView } from './ScrollView';

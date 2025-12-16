@@ -49,6 +49,7 @@ export const navConfig = [
       { name: '公告', code: 'notice' },
       { name: '进度条', code: 'progress' },
       { name: '引用', code: 'quote' },
+      { name: '角标', code: 'ribbon' },
       { name: '富文本', code: 'rich-text' },
       { name: '滚动网格', code: 'scroll-grid' },
       { name: '滚动容器', code: 'scroll-view' },

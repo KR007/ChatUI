@@ -141,6 +141,8 @@ export { Skeleton } from './components/Skeleton';
 export type { SkeletonProps } from './components/Skeleton';
 export { StatusBadge } from './components/StatusBadge';
 export type { StatusBadgeProps } from './components/StatusBadge';
+export { Ribbon } from './components/Ribbon';
+export type { RibbonProps } from './components/Ribbon';
 export { Stepper, Step } from './components/Stepper';
 export type { StepperProps, StepProps } from './components/Stepper';
 export { Tabs, Tab } from './components/Tabs';
